@@ -1,6 +1,7 @@
 import streamlit as st
 from prediction_helper import predict
 import base64
+import sqlite3
 
 
 def set_background(image_file):
@@ -126,9 +127,51 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+# adding data to the database
+
+def save_user_data(age, number_of_dependants, income_lakhs, genetical_risk, 
+                   insurance_plan, employment_status, gender, marital_status, 
+                   bmi_category, smoking_status, region, medical_history):
+    conn = sqlite3.connect("user_data.db")
+    cursor = conn.cursor()
+
+    # creating table
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        age INTEGER,
+        number_of_dependants INTEGER,
+        income_lakhs INTEGER,
+        genetical_risk INTEGER,
+        insurance_plan TEXT,
+        employment_status TEXT,
+        gender TEXT,
+        marital_status TEXT,
+        bmi_category TEXT,
+        smoking_status TEXT,
+        region TEXT,
+        medical_history TEXT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+""")
+    
+    cursor.execute("""
+        INSERT INTO users (age, number_of_dependants, income_lakhs, genetical_risk, 
+                           insurance_plan, employment_status, gender, marital_status, 
+                           bmi_category, smoking_status, region, medical_history) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (age, number_of_dependants, income_lakhs, genetical_risk, insurance_plan, 
+          employment_status, gender, marital_status, bmi_category, smoking_status, 
+          region, medical_history))
+    conn.commit()
+    conn.close()
+
 # Display the prediction result with the custom styling
 if st.button('Predict'):
     prediction = predict(input_dict)
+    save_user_data(age, number_of_dependants, income_lakhs, genetical_risk, 
+                   insurance_plan, employment_status, gender, marital_status, 
+                   bmi_category, smoking_status, region, medical_history)
     st.markdown(f'<div class="success-message">Your Predicted Health Insurance Cost: {prediction}</div>', unsafe_allow_html=True)
 
 # Add footer that appears after scrolling
