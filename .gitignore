@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 app
+user_data.db
+
 
 
 requirements.txt
