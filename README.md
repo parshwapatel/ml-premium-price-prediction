@@ -1,1 +1,1 @@
-this is simple readme file.
+This app has been created by Parshwa Patel.
