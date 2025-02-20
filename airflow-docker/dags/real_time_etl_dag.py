@@ -3,25 +3,16 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from datetime import datetime
 
-# Define the ETL functions
+# Define your ETL functions
 def extract_data_from_supabase():
-    """
-    Extract data from Supabase 'users' table.
-    """
     postgres_hook = PostgresHook(postgres_conn_id="supabase_connection")
-    sql = """
-    SELECT * FROM users;
-    """
+    sql = "SELECT * FROM users;"
     records = postgres_hook.get_records(sql)
     return records
 
 def transform_data(records):
-    """
-    Transform the extracted data as needed.
-    """
     transformed_data = []
     for record in records:
-        # Example transformation (you can add more logic based on your needs)
         transformed_record = {
             'age': record[1],
             'number_of_dependants': record[2],
@@ -39,25 +30,16 @@ def transform_data(records):
         transformed_data.append(transformed_record)
     return transformed_data
 
-def load_data_to_target(transformed_data):
-    """
-    Load the transformed data to the desired target (e.g., another database or a file).
-    """
-    # Here you can load the data to a new database, file, or perform any action.
-    for data in transformed_data:
-        # Load or process the data as required
-        print(data)
+def load_data_to_api(transformed_data):
+    # This function can call your API to load the transformed data
+    pass
 
-# Define the DAG
+# Define the DAG for Airflow
 dag = DAG(
     'real_time_etl_pipeline',
-    default_args={
-        'owner': 'airflow',
-        'start_date': datetime(2025, 1, 1),
-        'retries': 1,
-    },
+    default_args={'owner': 'airflow', 'start_date': datetime(2025, 1, 1), 'retries': 1},
     description='Real-time ETL pipeline for Supabase data',
-    schedule_interval='@hourly',  # Adjust as per your requirement
+    schedule='@hourly',
 )
 
 # Define the tasks using PythonOperator
@@ -76,7 +58,7 @@ transform_task = PythonOperator(
 
 load_task = PythonOperator(
     task_id='load_data',
-    python_callable=load_data_to_target,
+    python_callable=load_data_to_api,
     op_kwargs={'transformed_data': '{{ task_instance.xcom_pull(task_ids="transform_data") }}'},
     dag=dag,
 )
