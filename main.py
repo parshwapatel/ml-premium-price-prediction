@@ -1,7 +1,7 @@
 import streamlit as st
 from prediction_helper import predict
 import base64
-from database import save_user_data_to_supabase # Import the function from database.py
+from database.database_ext import save_user_data_to_supabase # Import the function from database.py
 
 
 def set_background(image_file):

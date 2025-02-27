@@ -1,11 +1,12 @@
-# database.py
+# database_ext.py
+
 from supabase import create_client, Client
 
 
 # Set up the connection to Supabase (use your own URL and Key)
-url = "https://vndclryqjcrarvhtpfrf.supabase.co"
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZuZGNscnlxamNyYXJ2aHRwZnJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk3NDgwMDUsImV4cCI6MjA1NTMyNDAwNX0.LWu2AU3iJHZNCyHBw_1j-nh4yZBLop7PKShrr599OqU"
-supabase: Client = create_client(url, key)
+SUPABASE_URL = "https://vndclryqjcrarvhtpfrf.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZuZGNscnlxamNyYXJ2aHRwZnJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk3NDgwMDUsImV4cCI6MjA1NTMyNDAwNX0.LWu2AU3iJHZNCyHBw_1j-nh4yZBLop7PKShrr599OqU"
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Function to save user data to Supabase
 def save_user_data_to_supabase(age, number_of_dependants, income_lakhs, genetical_risk, insurance_plan, 
