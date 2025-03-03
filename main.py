@@ -1,7 +1,12 @@
 import streamlit as st
 from prediction_helper import predict
 import base64
-from database.database_ext import save_user_data_to_supabase # Import the function from database.py
+import sys
+sys.path.append('C:\Users\Asus\ml-premium-price-prediction\airflow\dags')
+from database1.database_ext import save_user_data_to_supabase # Import the function from database.py
+
+
+sys.path.append('C:\Users\Asus\ml-premium-price-prediction\airflow\dags')
 
 
 def set_background(image_file):
