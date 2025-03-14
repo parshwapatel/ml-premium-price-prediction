@@ -12,7 +12,7 @@ API_CONN_ID = 'supabase_api_conn'
 POSTGRES_CONN_ID = 'pgadmin4_conn'
 
 # Get Supabase Client API Key from environment variables
-SUPABASE_CLIENT_API_KEY= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZuZGNscnlxamNyYXJ2aHRwZnJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk3NDgwMDUsImV4cCI6MjA1NTMyNDAwNX0.LWu2AU3iJHZNCyHBw_1j-nh4yZBLop7PKShrr599OqU'
+SUPABASE_CLIENT_API_KEY = os.getenv("SUPABASE_CLIENT_API_KEY")
 
 # Define the DAG
 with DAG(
