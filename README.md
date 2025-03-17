@@ -108,7 +108,7 @@ astro dev init
 
 # Start services
 astro dev start 
-```  # <-- Closing backticks here
+```  
 
 ## PostgreSQL Database Setup
 
@@ -118,4 +118,4 @@ docker run --name project_hi \
   -e POSTGRES_PASSWORD=postgres \
   -p 5432:5432 \
   -d postgres:13
-```  # <-- Closing backticks here
+```  
