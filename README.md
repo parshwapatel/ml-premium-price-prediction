@@ -49,12 +49,18 @@
   cd ml-premium-price-prediction
 
 
-2. Set Up Environment:-
-   
-    python -m venv venv
-    source venv/bin/activate  # Windows: venv\Scripts\activate
-    pip install -r requirements.txt
+## 2. Set Up Environment ⚙️
 
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate environment
+source venv/bin/activate  # Linux/macOS
+
+# Install dependencies
+pip install -r requirements.txt
+```
 
 ## 3. Configure Supabase
 
@@ -111,7 +117,7 @@ volumes:
    
   ## 5. Launch Services
 
-### 🌐 Streamlit Web Application
+###  Streamlit Web Application
 ```bash
 streamlit run app/main.py
 ```
