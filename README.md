@@ -24,15 +24,15 @@
     » pgAdmin4 database management
   
   
-  Tech Stack:-
-  
-  | Component              | Technologies Used                          |
-  |------------------------|--------------------------------------------|
-  | Machine Learning       | Python, Scikit-learn, XGBoost, Pandas      |
-  | Frontend               | Streamlit                                  |
-  | Database               | Supabase (PostgreSQL), pgAdmin4            |
-  | Data Engineering       | Apache Airflow, Docker, REST API           |
-  | DevOps                 | Docker Desktop, Postman                    |
+## Tech Stack 
+
+| Component           | Technologies Used                          |
+|---------------------|--------------------------------------------|
+| ** Machine Learning** | Python, Scikit-learn, XGBoost, Pandas      |
+| ** Frontend**       | Streamlit                                  |
+| ** Database**       | Supabase (PostgreSQL), pgAdmin4            |
+| ** Data Engineering** | Apache Airflow, Docker, REST API           |
+| ** DevOps**         | Docker Desktop, Postman                    |
   
   
 ## Installation 
