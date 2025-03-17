@@ -43,7 +43,7 @@
   - Postman (for API testing)
   - PgAdmin4
 
-  ```bash 
+  bash 
   # Clone repository
   git clone https://github.com/parshwapatel/ml-premium-price-prediction.git
   cd ml-premium-price-prediction
