@@ -43,10 +43,15 @@
   - Postman (for API testing)
   - PgAdmin4
 
-  bash 
-  # Clone repository
-  git clone https://github.com/parshwapatel/ml-premium-price-prediction.git
-  cd ml-premium-price-prediction
+## 1. Clone Repository 📥
+
+```bash
+# Clone the repository
+git clone https://github.com/parshwapatel/ml-premium-price-prediction.git
+
+# Navigate to project directory
+cd ml-premium-price-prediction
+```
 
 
 ## 2. Set Up Environment ⚙️
