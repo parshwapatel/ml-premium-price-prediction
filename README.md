@@ -93,19 +93,28 @@
         streamlit run app/main.py
       Access: http://localhost:8501
     
-   -> Airflow with Astronomer:-
-      git checkout astro-airflow-run
-      npm install -g astro
-      astro dev init
-      astro dev start
-      Access: http://localhost:8080 (username:admin/pswd:admin), find dag named 'realtime_etl_with_table_creation'
+   -> ## 🌪️ Airflow Setup with Astronomer
+
+### Launch Airflow Services
+```bash
+# Switch to Airflow branch
+git checkout astro-airflow-run
+
+# Install Astronomer CLI
+npm install -g astro
+
+# Initialize project
+astro dev init
+
+# Start services
+astro dev start
      
-   -> PostgreSQL Database:-
-      docker run --name project_hi -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
-      
-      Connect via pgAdmin4:
-        Server: project_hi
-        Database: postgres
-        Password: postgres
-    
+## PostgreSQL Database Setup
+
+### Launch PostgreSQL Container
+```bash
+docker run --name project_hi \
+  -e POSTGRES_PASSWORD=postgres \
+  -p 5432:5432 \
+  -d postgres:13
 
