@@ -35,15 +35,32 @@
   | DevOps                 | Docker Desktop, Postman                    |
   
   
-  Installation:-
-  
-  Prerequisites:-
-  - Python 3.8+
-  - Docker Desktop
-  - Postman (for API testing)
-  - PgAdmin4
+## Installation 
 
-## 1. Clone Repository 📥
+### Prerequisites
+- ** Python 3.8+** - Required for running the ML model and Streamlit app  
+  [Download Python](https://www.python.org/downloads/)
+  
+- ** Docker Desktop** - For containerized services (PostgreSQL and Airflow)  
+  [Install Docker](https://www.docker.com/products/docker-desktop)
+
+- ** Postman** - For API testing and development  
+  [Get Postman](https://www.postman.com/downloads/)
+
+- ** pgAdmin4** - PostgreSQL database management GUI  
+  [Install pgAdmin](https://www.pgadmin.org/download/)
+
+### Verify Installations
+```bash
+# Check Python version
+python --version
+
+# Check Docker installation
+docker --version
+
+# Check Docker Compose version
+docker-compose --version
+## 1. Clone Repository 
 
 ```bash
 # Clone the repository
@@ -54,7 +71,7 @@ cd ml-premium-price-prediction
 ```
 
 
-## 2. Set Up Environment ⚙️
+## 2. Set Up Environment 
 
 ```bash
 # Create virtual environment
