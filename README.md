@@ -56,44 +56,65 @@
     pip install -r requirements.txt
 
 
-3. Configure Supabase:-
+## 3. Configure Supabase
 
-   Create a `.env` file in your project root:
-   env:
-     SUPABASE_URL='your-project-url.supabase.co'
-     SUPABASE_KEY='your-anon-key-here'
+### Environment Setup
+Create `.env` file in project root:
+```env
+SUPABASE_URL='your-project-url.supabase.co'
+SUPABASE_KEY='your-anon-key-here
+```
+Database Schema (users Table)
+| Column                | Type           | Description & Example Values                              |
+|-----------------------|----------------|-----------------------------------------------------------|
+| `id`                  | SERIAL         | Auto-generated unique ID                                  |
+| `age`                 | INTEGER        | User age (18-100)                                         |
+| `number_of_dependants`| INTEGER        | Dependents count (0-20)                                   |
+| `income_lakhs`        | NUMERIC        | Annual income (e.g., 5 = ₹500,000)                        |
+| `genetical_risk`      | INTEGER        | Genetic risk score (0-5 scale)                            |
+| `insurance_plan`      | VARCHAR(50)    | Plan type: Bronze/Silver/Gold                             |
+| `employment_status`   | VARCHAR(50)    | Salaried/Self-Employed/Freelancer                         |
+| `gender`              | VARCHAR(10)    | Male/Female                                               |
+| `marital_status`      | VARCHAR(20)    | Married/Unmarried                                         |
+| `bmi_category`        | VARCHAR(20)    | Underweight/Normal/Overweight/Obesity                     |
+| `smoking_status`      | VARCHAR(20)    | Non-Smoker/Occasional/Regular                             |
+| `region`              | VARCHAR(20)    | Northwest/Southeast/Northeast/Southwest                   |
+| `medical_history`     | VARCHAR(100)   | Diabetes/High BP/Heart Disease/etc.                       |
+| `created_at`          | TIMESTAMPTZ    | Auto-generated timestamp (with timezone)                  |
+ ## 4. Build a services in docker-compose.yaml file:-
+ ```code
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
-   Database Schema (Supabase `users` Table)
+  airflow:
+    environment:
+      - SUPABASE_CLIENT_API_KEY=${SUPABASE_CLIENT_API_KEY}
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:
+```
+
+
    
-      | Column Name            | Type        | Description & Example Values                     |
-      |------------------------|-------------|--------------------------------------------------|
-      | id                     | SERIAL      | Auto-incrementing unique identifier              |
-      | age                    | INTEGER     | Age of the user (18-100)                         |
-      | number_of_dependants   | INTEGER     | Number of dependents (0-20)                      |
-      | income_lakhs           | NUMERIC     | Annual income in lakhs (e.g., 5 = ₹500,000)      |
-      | genetical_risk         | INTEGER     | Genetic risk score (0-5 scale)                   |
-      | insurance_plan         | VARCHAR     | Plan type: Bronze/Silver/Gold                    |
-      | employment_status      | VARCHAR     | Employment type: Salaried/Self-Employed/Freelancer |
-      | gender                 | VARCHAR     | Gender: Male/Female                              |
-      | marital_status         | VARCHAR     | Marital status: Married/Unmarried                |
-      | bmi_category           | VARCHAR     | BMI classification: Underweight/Normal/Overweight/Obesity |
-      | smoking_status         | VARCHAR     | Smoking habits: Non-Smoker/Occasional/Regular    |
-      | region                 | VARCHAR     | Geographic region: Northwest/Southeast/Northeast/Southwest |
-      | medical_history        | VARCHAR     | Medical conditions: Diabetes/High BP/Heart Disease/etc. |
-      | created_at             | TIMESTAMPTZ | Timestamp of record creation                     |
+  ## 5. Launch Services
 
-
-4. Build a services in docker-compose.yaml file:-
-
-
-5. Launch Services:-
-   
-   -> Streamlit Web Application
-      bash:
-        streamlit run app/main.py
-      Access: http://localhost:8501
-    
-   -> ## 🌪️ Airflow Setup with Astronomer
+### 🌐 Streamlit Web Application
+```bash
+streamlit run app/main.py
+```
 
 ### Launch Airflow Services
 ```bash
