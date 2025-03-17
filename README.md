@@ -44,8 +44,9 @@
   - PgAdmin4
 
   Clone Repository:-
-    '''bash 
+    bash:
     git clone https://github.com/parshwapatel/ml-premium-price-prediction.git
+    
     cd ml-premium-price-prediction
 
 
