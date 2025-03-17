@@ -28,26 +28,26 @@
 
 | Component           | Technologies Used                          |
 |---------------------|--------------------------------------------|
-| ** Machine Learning** | Python, Scikit-learn, XGBoost, Pandas      |
-| ** Frontend**       | Streamlit                                  |
-| ** Database**       | Supabase (PostgreSQL), pgAdmin4            |
-| ** Data Engineering** | Apache Airflow, Docker, REST API           |
-| ** DevOps**         | Docker Desktop, Postman                    |
+| Machine Learning | Python, Scikit-learn, XGBoost, Pandas      |
+| Frontend      | Streamlit                                  |
+| Database      | Supabase (PostgreSQL), pgAdmin4            |
+| Data Engineering | Apache Airflow, Docker, REST API           |
+| DevOps         | Docker Desktop, Postman                    |
   
   
 ## Installation 
 
 ### Prerequisites
-- ** Python 3.8+** - Required for running the ML model and Streamlit app  
+-  Python 3.8+ - Required for running the ML model and Streamlit app  
   [Download Python](https://www.python.org/downloads/)
   
-- ** Docker Desktop** - For containerized services (PostgreSQL and Airflow)  
+-  Docker Desktop - For containerized services (PostgreSQL and Airflow)  
   [Install Docker](https://www.docker.com/products/docker-desktop)
 
-- ** Postman** - For API testing and development  
+-  Postman - For API testing and development  
   [Get Postman](https://www.postman.com/downloads/)
 
-- ** pgAdmin4** - PostgreSQL database management GUI  
+-  pgAdmin4 - PostgreSQL database management GUI  
   [Install pgAdmin](https://www.pgadmin.org/download/)
 
 ### Verify Installations
