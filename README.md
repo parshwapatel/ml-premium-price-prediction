@@ -1,27 +1,43 @@
 1. Project Overview:-
 
-  Health Insurance Premium Prediction System:-
-  
-  Predict health insurance costs with 98% accuracy using machine learning, powered by real-time data pipelines and interactive analytics.
-  
-  Live Application: [Streamlit Web App](https://get-health-insurance-price.streamlit.app/)
-  
-  
-  Features:-
-  - Machine Learning Model 
-    » XGBoost with RandomizedCV hyperparameter tuning  
-    » 98% prediction accuracy  
-    » Processes age, BMI, medical history, and lifestyle factors
-  
-  - Real-Time Data Flow
-    » User inputs stored in Supabase PostgreSQL (`users` table)  
-    » Airflow ETL pipelines (Dockerized)  
-    » Automated data validation and cleaning
-  
-  - Interactive Analytics
-    » Streamlit web interface for instant predictions  
-    » Power BI dashboards for demographic insights  
-    » pgAdmin4 database management
+# Health Insurance Premium Prediction System 🏥💻
+
+An end-to-end machine learning system that predicts health insurance premiums with **98% accuracy** using XGBoost, featuring real-time data pipelines and interactive analytics.
+
+##  Key Features
+
+###  Machine Learning Model
+- » XGBoost with RandomizedCV hyperparameter tuning
+- » Processes 12+ health parameters:
+  - Age, BMI, Medical History
+  - Lifestyle Factors (Smoking Status, Genetic Risk)
+  - Demographic Data (Income, Region)
+- » Automated feature scaling with StandardScaler
+
+###  Real-Time Data Flow
+- » Supabase PostgreSQL integration (`users` table)
+- » Airflow ETL Pipelines (Docker containers)
+- » Automated data validation rules:
+  - Age range: 18-100
+  - Income validation: 0-200 lakhs
+  - BMI category mapping
+
+###  Interactive Analytics
+- » Streamlit Web Interface:
+  - Real-time premium predictions
+  - User input validation
+  - Result visualization
+- » Power BI Dashboards:
+  - Demographic distribution
+  - Premium cost analysis
+  - Risk factor correlations
+- » pgAdmin4 Database Management
+
+##  Key Highlights
+- 98% Model Accuracy (R-squared score)
+- Real-Time Processing (<500ms prediction time)
+- Scalable Architecture (Docker containers)
+- Secure Data Handling (Supabase RLS enabled)
   
   
 ## Tech Stack 
