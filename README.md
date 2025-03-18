@@ -268,7 +268,7 @@ This Power BI dashboard visualizes data from a PostgreSQL database containing he
 3. Enter your PostgreSQL connection details:
    - Server: localhost
    - Database: postgres
-4. Select DirectQuery for live data connectivity.
+4. Select `DirectQuery` for live data connectivity.
 5. Load the `users` table.
 
 ### 2. Create Age Group Distribution (Bar Chart)
