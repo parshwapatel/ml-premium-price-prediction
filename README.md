@@ -105,7 +105,7 @@ pip install -r requirements.txt
 Create `.env` file in project root:
 ```env
 SUPABASE_URL='your-project-url.supabase.co'
-SUPABASE_KEY='your-anon-key-here
+SUPABASE_CLIENT_API_KEY='your-anon-key-here
 ```
 Database Schema (users Table)
 | Column                | Type           | Description & Example Values                              |
@@ -182,4 +182,49 @@ docker run --name project_hi \
   -e POSTGRES_PASSWORD=postgres \
   -p 5432:5432 \
   -d postgres:13
-```  
+```
+
+## Airflow Connections Setup
+
+This project uses the following Airflow connections. Ensure these are configured in your Airflow environment:
+
+### 1. Supabase API Connection
+- **Connection ID**: `supabase_api_conn`
+- **Type**: HTTP
+- **Required Parameters**:
+  - Host: Your Supabase project URL (e.g., `https://<project-id>.supabase.co`)
+  - Authentication: Add API key to `Password` field (or use `Extras` for custom headers)
+
+### 2. PostgreSQL Database Connection
+- **Connection ID**: `pgadmin4_conn`
+- **Type**: Postgres
+- **Required Parameters**:
+  - Host: Database server address
+  - Schema: Database name
+  - Login: Database username
+  - Password: Database password
+  - Port: 5432 (default) or your custom port
+
+## Airflow Connections Configuration
+
+### 1. PostgreSQL Database Connection (pgadmin4_conn)
+**Connection Details**:
+```bash
+Connection ID: pgadmin4_conn
+Connection Type: Postgres
+Host: Container_ID
+Database: postgres
+Login: postgres
+Password: postgres
+Port: 5432
+```
+```bash
+Connection ID: supabase_api_conn
+Connection Type: HTTP
+Host: your-project-url.supabase.co
+Extras JSON:
+{
+  "apikey": "your-supabase-api-key",
+  "Authorization": "Bearer your-supabase-bearer-token"
+}
+```
