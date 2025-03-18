@@ -1,5 +1,3 @@
-1. Project Overview:-
-
 # Health Insurance Premium Prediction System
 
 An end-to-end machine learning system that predicts health insurance premiums with **98% accuracy** using XGBoost, featuring real-time data pipelines and interactive analytics.
