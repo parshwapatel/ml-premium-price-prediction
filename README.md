@@ -244,3 +244,88 @@ load_data_to_postgres(transformed_data)
 # Define execution sequence
 extracted_data >> transformed_data >> load_data_to_postgres
 ```
+
+
+# Health Insurance Web Visitors Dashboard
+
+## Project Overview
+This Power BI dashboard visualizes data from a PostgreSQL database containing health insurance web visitor information, including demographics, income, insurance plans, and medical history. The dashboard is built using **DirectQuery** for real-time data updates.
+
+## Prerequisites
+1. Power BI Desktop ([Download here](https://powerbi.microsoft.com/desktop/))
+2. PostgreSQL ODBC Driver ([Download here](https://www.postgresql.org/ftp/odbc/versions/))
+3. Access to the PostgreSQL database with the following credentials:
+   - Hostname/IP
+   - Port (default: 5432)
+   - Database name
+   - Username and password
+
+## Steps to Replicate the Project
+
+### 1. Connect Power BI to PostgreSQL
+1. Open Power BI Desktop.
+2. ClickGet Data > Database > PostgreSQL.
+3. Enter your PostgreSQL connection details:
+   - Server: Hostname/IP
+   - Database: Database name
+4. Select DirectQuery for live data connectivity.
+5. Load the `users` table.
+
+### 2. Create Age Group Distribution (Bar Chart)
+1. Create a new column using this DAX formula:
+   ```dax
+   Age Group = 
+   SWITCH(
+       TRUE(),
+       'users'[age] >= 0 && 'users'[age] <= 25, "0-25",
+       'users'[age] > 25 && 'users'[age] <= 50, "25-50",
+       'users'[age] > 50 && 'users'[age] <= 75, "50-75",
+       'users'[age] > 75 && 'users'[age] <= 100, "75-100",
+       "Other"
+   )
+Drag Age Group to the X-axis and id (count) to the Y-axis.
+
+Customize the bar chart using the Format pane.
+
+3. Create Income Group Distribution (Pie Chart)
+Create a new column using this DAX formula:
+
+```dax
+Copy
+Income Group = 
+SWITCH(
+    TRUE(),
+    'users'[income_lakhs] >= 0 && 'users'[income_lakhs] < 20, "0-20",
+    'users'[income_lakhs] >= 20 && 'users'[income_lakhs] < 50, "20-50",
+    'users'[income_lakhs] >= 50 && 'users'[income_lakhs] < 75, "50-75",
+    'users'[income_lakhs] >= 75 && 'users'[income_lakhs] < 100, "75-100",
+    "100+"
+)
+```
+Use Income Group in the Legend and id (count) in Values.
+
+Fix legend order by creating a sort-order column (see Troubleshooting).
+
+4. Insurance Plan Metrics (Cards)
+Create DAX measures for each plan:
+
+```dax
+Copy
+% Bronze Plan = 
+DIVIDE(
+    COUNTROWS(FILTER('users', 'users'[insurance_plan] = "Bronze")),
+    COUNTROWS('users'),
+    0
+)
+```
+Repeat for Silver and Gold plans.
+
+Add these measures to Card visuals.
+
+5. Medical History Analysis
+Use a Word Cloud or Bar Chart:
+
+Drag medical_history to the Category field.
+
+Drag id to Values for counts.
+
