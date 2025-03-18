@@ -230,3 +230,17 @@ Extras JSON:
   "Authorization": "Bearer your-supabase-bearer-token"
 }
 ```
+
+## Workflow Dependencies
+
+The data pipeline follows this execution order:
+
+```python
+# Set Task Dependencies
+extracted_data = extract_data_from_supabase()
+transformed_data = transform_data(extracted_data)
+load_data_to_postgres(transformed_data)
+
+# Define execution sequence
+extracted_data >> transformed_data >> load_data_to_postgres
+```
