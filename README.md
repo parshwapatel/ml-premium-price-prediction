@@ -246,7 +246,7 @@ extracted_data >> transformed_data >> load_data_to_postgres
 ```
 
 
-# Health Insurance Web Visitors Dashboard (Power BI)
+## Health Insurance Web Visitors Dashboard (Power BI)
 
 ## Project Overview
 This Power BI dashboard visualizes data from a PostgreSQL database containing health insurance web visitor information, including demographics, income, insurance plans, and medical history. The dashboard is built using **DirectQuery** for real-time data updates.
@@ -287,7 +287,7 @@ Drag Age Group to the X-axis and id (count) to the Y-axis.
 
 Customize the bar chart using the Format pane.
 
-3. Create Income Group Distribution (Pie Chart)
+### 3. Create Income Group Distribution (Pie Chart)
 Create a new column using this DAX formula:
 
 ```dax
@@ -305,7 +305,7 @@ Use Income Group in the Legend and id (count) in Values.
 
 Fix legend order by creating a sort-order column (see Troubleshooting).
 
-4. Insurance Plan Metrics (Cards)
+### 4. Insurance Plan Metrics (Cards)
 Create DAX measures for each plan:
 
 ```dax
@@ -320,7 +320,7 @@ Repeat for Silver and Gold plans.
 
 Add these measures to Card visuals.
 
-5. Medical History Analysis
+### 5. Medical History Analysis
 Use a Word Cloud or Bar Chart:
 
 Drag medical_history to the Category field.
