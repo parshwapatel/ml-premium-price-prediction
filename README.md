@@ -218,6 +218,8 @@ Login: postgres
 Password: postgres
 Port: 5432
 ```
+
+### 2. Supabase API Connection (supabase_api_conn)
 ```bash
 Connection ID: supabase_api_conn
 Connection Type: HTTP
