@@ -246,7 +246,7 @@ extracted_data >> transformed_data >> load_data_to_postgres
 ```
 
 
-# Health Insurance Web Visitors Dashboard
+# Health Insurance Web Visitors Dashboard (Power BI)
 
 ## Project Overview
 This Power BI dashboard visualizes data from a PostgreSQL database containing health insurance web visitor information, including demographics, income, insurance plans, and medical history. The dashboard is built using **DirectQuery** for real-time data updates.
@@ -255,10 +255,10 @@ This Power BI dashboard visualizes data from a PostgreSQL database containing he
 1. Power BI Desktop ([Download here](https://powerbi.microsoft.com/desktop/))
 2. PostgreSQL ODBC Driver ([Download here](https://www.postgresql.org/ftp/odbc/versions/))
 3. Access to the PostgreSQL database with the following credentials:
-   - Hostname/IP
+   - Hostname/IP: localhost
    - Port (default: 5432)
-   - Database name
-   - Username and password
+   - Database name : postgres
+   - Username and password : postgres
 
 ## Steps to Replicate the Project
 
@@ -266,8 +266,8 @@ This Power BI dashboard visualizes data from a PostgreSQL database containing he
 1. Open Power BI Desktop.
 2. ClickGet Data > Database > PostgreSQL.
 3. Enter your PostgreSQL connection details:
-   - Server: Hostname/IP
-   - Database: Database name
+   - Server: localhost
+   - Database: postgres
 4. Select DirectQuery for live data connectivity.
 5. Load the `users` table.
 
@@ -291,7 +291,6 @@ Customize the bar chart using the Format pane.
 Create a new column using this DAX formula:
 
 ```dax
-Copy
 Income Group = 
 SWITCH(
     TRUE(),
@@ -310,7 +309,6 @@ Fix legend order by creating a sort-order column (see Troubleshooting).
 Create DAX measures for each plan:
 
 ```dax
-Copy
 % Bronze Plan = 
 DIVIDE(
     COUNTROWS(FILTER('users', 'users'[insurance_plan] = "Bronze")),
