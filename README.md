@@ -24,16 +24,16 @@ An end-to-end machine learning system that predicts health insurance premiums wi
 - » Streamlit Web Interface:
   - Real-time premium predictions
   - User input validation
-  - Result visualization
 - » Power BI Dashboards:
   - Demographic distribution
   - Premium cost analysis
   - Risk factor correlations
 - » pgAdmin4 Database Management
+  - Storing user inputs into database
 
 ##  Key Highlights
-- 98% Model Accuracy (R-squared score)
-- Real-Time Processing (<500ms prediction time)
+- 98% Model Accuracy 
+- Real-Time Processing 
 - Scalable Architecture (Docker containers)
 - Secure Data Handling (Supabase RLS enabled)
   
