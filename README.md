@@ -87,7 +87,7 @@ cd ml-premium-price-prediction
 ```
 
 
-## 2. Set Up Environment 
+##  Set Up Environment 
 
 ```bash
 # Create virtual environment
@@ -100,7 +100,7 @@ source venv/bin/activate  # Linux/macOS
 pip install -r requirements.txt
 ```
 
-## 3. Configure Supabase
+##  Configure Supabase
 
 ### Environment Setup
 Create `.env` file in project root:
@@ -125,7 +125,7 @@ Database Schema (users Table)
 | `region`              | VARCHAR(20)    | Northwest/Southeast/Northeast/Southwest                   |
 | `medical_history`     | VARCHAR(100)   | Diabetes/High BP/Heart Disease/etc.                       |
 | `created_at`          | TIMESTAMPTZ    | Auto-generated timestamp (with timezone)                  |
- ## 4. Build a services in docker-compose.yaml file:-
+ ##  Build a services in docker-compose.yaml file:-
  ```code
 version: '3'
 services:
@@ -153,7 +153,7 @@ volumes:
 
 
    
-  ## 5. Launch Services
+  ##  Launch Services
 
 ###  Streamlit Web Application
 ```bash
